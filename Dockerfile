@@ -72,10 +72,10 @@ RUN set -x \
 # Install nodejs 0.10.25
     && curl http://nodejs.org/dist/v0.10.25/node-v0.10.25.tar.gz -o /tmp/node-v0.10.25.tar.gz \
     && tar zxvf /tmp/node-v0.10.25.tar.gz -C /tmp \
-    && cd node-v0.10.25
-    && ./configure
-    && make
-    && sudo make install
+    && cd node-v0.10.25 \
+    && ./configure \
+    && make \
+    && sudo make install \
     #
 # Install mongodb2.4.8
     && curl http://downloads.mongodb.org/linux/mongodb-linux-x86_64-2.4.8.tgz -o /tmp/mongodb-linux-x86_64-2.4.8.tgz \
@@ -84,27 +84,27 @@ RUN set -x \
     && ln -s /usr/share/apache-maven-3.6.2 /usr/share/maven \
     && ln -s /usr/share/apache-maven-3.6.2 /usr/share/maven \
     #
-    && ln -s /usr/local/mongodb-linux-x86_64-2.4.8 /usr/local/mongodb
-    && ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump
-    && ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo
-    && ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod
-    && ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump
-    && ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport
-    && ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles
-    && ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport
-    && ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore
-    && ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos
-    && ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff
-    && ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat
+    && ln -s /usr/local/mongodb-linux-x86_64-2.4.8 /usr/local/mongodb \
+    && ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump \
+    && ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo \
+    && ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod \
+    && ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump \
+    && ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport \
+    && ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles \
+    && ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport \
+    && ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore \
+    && ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos \
+    && ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff \
+    && ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat \
     #
-    && curl https://github.com/ijonas/dotfiles/raw/master/etc/init.d/mongod -o /etc/init.d/mongod
-    && sudo chmod +x /etc/init.d/mongod
+    && curl https://github.com/ijonas/dotfiles/raw/master/etc/init.d/mongod -o /etc/init.d/mongod \
+    && sudo chmod +x /etc/init.d/mongod \
     #
-    && sudo useradd mongodb
-    && sudo mkdir -p /var/lib/mongodb
-    && sudo mkdir -p /var/log/mongodb
-    && sudo chown mongodb.mongodb /var/lib/mongodb
-    && sudo chown mongodb.mongodb /var/log/mongodb
+    && sudo useradd mongodb \
+    && sudo mkdir -p /var/lib/mongodb \
+    && sudo mkdir -p /var/log/mongodb \
+    && sudo chown mongodb.mongodb /var/lib/mongodb \
+    && sudo chown mongodb.mongodb /var/log/mongodb \
 # 空パスワードの場合は以下をコメントアウト
     && sed -ri 's/^#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config \
     && sed -ri 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
