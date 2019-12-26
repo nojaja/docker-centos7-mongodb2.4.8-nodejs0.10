@@ -36,6 +36,7 @@ RUN set -x \
     && yum -y install initscripts MAKEDEV \
     && yum check \
     && yum -y update \
+    && yum -y install make gcc \
     && yum -y install openssh-server passwd \
     && yum -y install net-tools zip unzip \
     #
