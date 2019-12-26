@@ -71,8 +71,8 @@ RUN set -x \
     #
 # Install nodejs 0.10.25
     && curl http://nodejs.org/dist/v0.10.25/node-v0.10.25.tar.gz -o /tmp/node-v0.10.25.tar.gz \
-    && tar zxvf /tmp/node-v0.10.25.tar.gz -C /tmp \
-    && cd node-v0.10.25 \
+    && tar zxf /tmp/node-v0.10.25.tar.gz -C /tmp \
+    && cd /tmp/node-v0.10.25 \
     && ./configure \
     && make \
     && sudo make install \
