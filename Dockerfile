@@ -81,10 +81,6 @@ RUN set -x \
 # Install mongodb2.4.8
     && curl http://downloads.mongodb.org/linux/mongodb-linux-x86_64-2.4.8.tgz -o /tmp/mongodb-linux-x86_64-2.4.8.tgz \
     && tar zxvf /tmp/node-v0.10.25.tar.gz -C /usr/local \
-    && ln -s /usr/share/apache-maven-3.6.2 /usr/share/maven \
-    && ln -s /usr/share/apache-maven-3.6.2 /usr/share/maven \
-    && ln -s /usr/share/apache-maven-3.6.2 /usr/share/maven \
-    #
     && ln -s /usr/local/mongodb-linux-x86_64-2.4.8 /usr/local/mongodb \
     && ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump \
     && ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo \
